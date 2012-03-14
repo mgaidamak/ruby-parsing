@@ -1,0 +1,510 @@
+{
+   "VOIP" : {
+         "megaco-global" : {
+                  "general" : {
+                      "stat_query" : 0,
+                      "log_level" : 3,
+                      "log_mode" : 0,
+                      "vapi_dbg" : -1,
+                      "monitoring_ports" : true,
+                      "monitoring_snmp" : false,
+                      "cnode_number" : 3,
+                      "erlang_port" : 3456
+                    },
+                  "codecs" : {
+                    "dtmftransfer" : false,
+                    "flashtransfer" : 0,
+                    "echocanceller" : false,
+                    "nlp" : false,
+                    "comfortnoise" : false,
+                    "silencedetector" : false
+                    },
+                  "megaco" : {
+                      "adaptation" : 0,
+                      "digit_map_timers" : {
+                         "long" : 6,
+                         "short" : 3,
+                         "start" : 10
+                      },
+                      "log_priority" : 0,
+                      "maximum_waiting_delay" : 0,
+                      "virtual_terminations_prefix" : "v",
+                      "mid" : {
+                         "type" : 0,
+                         "address" : "tau72test" 
+                      },
+                      "rfc2833" : false,
+                      "rtp_host_ip4" : 0,
+                      "rtp_host_ip6" : 0,
+                      "rtp_port_range" : {
+                         "min" : 5000,
+                         "max" : 5500
+                       },
+                       "supported_codecs" : {
+                         "g711a" : 1,
+                         "g711u" : 2,
+                         "g723"  : 0,
+                         "g726"  : 0,
+                         "g728"  : 0,
+                         "g729"  : 0,
+                         "t38"   : 0
+                       },
+
+                      "association" : {
+                         "host" : "localhost",
+                         "port" : 2944,
+                         "listen_port" : 2944,
+                         "mgc_timeout" : 10000,
+                         "transport" : 0,
+                         "encoding" : 0
+                      }
+                  }
+         },
+         "sip-global" : {
+            "codecs" : {
+                "comfortnoise" : true,
+                "dtmftransfer" : 1,
+                "echocanceller" : true,
+                "faxdirection" : 0,
+                "faxtransfer" : 1,
+                "flashtransfer" : 1,
+                "codec_order" : {
+                    "g711a" : 1,
+                    "g711u" : 2,
+                    "g723" : 0,
+                    "g729a" : 0,
+                    "g729b" : 0,
+                    "g729x" : 0
+                },
+                "g711pte" : 20,
+                "g723pte" : 30,
+                "g729pte" : 20,
+                "jitter_buffer" : {
+                    "pt_delay" : 0,
+                    "vo_adaptive" : true,
+                    "vo_del_mode_soft" : 1,
+                    "vo_delay" : {
+                        "max" : 200,
+                        "min" : 0
+                    },
+                    "vo_del_threshold" : 500
+                },
+                "modemtransfer" : 0,
+                "nse_payload" : 100,
+                "payload" : 96,
+                "rtcp_period" : -1,
+                "rtcp_timer" : -1,
+                "silencedetector" : false
+            }, 
+            "range" : {
+                "rtpsip" : {
+                    "min" : 35002,
+                    "max" : 40000
+                },
+                "intrcp" : {
+                    "min" : 50000,
+                    "max" : 50100
+                },
+                "diffserv" : 184,
+                "sip_diffserv" : 104,
+                "verify_remote_media" : false
+            },
+            "dialplans" : {
+                "dialplan_0" : "*8 0 0 pickup '192.168.16.233' \"\" 0 0 0 -8,18,32,33,34,35 0",
+                "dialplan_1" : [ "*8", "0", "0", "pickup", "192.168.16.233", "", "0", "0", "0", "-8,18,32,33,34,35", "0" ],
+
+                "dialplan" : {
+                    "id" : 299,
+                    "prefix" : "*8",
+                    "min_len" : 0,
+                    "timeout" : 0,
+                    "protocol" : "pickup",
+                    "address" : "192.168.16.233",
+                    "modific_add" : "",
+                    "modific_del" : 0,
+                    "type_num" : 0,
+                    "sig_answer" : false,
+                    "route" : "-8,18,32,33,34,35",
+                    "time_pte" : 0
+                }
+            },
+            "regexprd" : {
+                "regex_on" : false,
+                "proto" : "sip", 
+                "regex" : "L15 S8 (L20 8,x.|52xxxx|1xxxx|S3 1xx@192.168.16.13|7XXXXX|<:67>1x<xx:>@192.168.16.122|23xxx@d.external|<53:70>xxxx@192.168.16.13|26x{,5}@192.168.16.67|*8@{pickup:1,6}|3[0-38]x+|34*{1,3}|35#x{0,}|36x.*|37[0-2]x+)" 
+            },
+            "sip" : {
+                "enablesip" : true,
+                "cw_ringback" : 0,
+                "ringback" : 0,
+                "ringback_sdp" : false,
+                "mode" : 0,
+                "invite_init_t" : 500,
+                "invite_total_t" : 32000,
+                "user_phone" : false,
+                "uri_escape_hash" : false,
+                "dtmfmime" : 0,
+                "hfmime" : 0,
+                "rfc3262" : 0,
+                "transport" : 0,
+                "register_retry_interval" : 30,
+                "inbound_proxy" : false,
+                "domain" : "",
+                "domain_to_reg" : false,
+
+                "option" : 0,
+
+                "no_replaces" : false,
+                "keepalivet" : 60000,
+                "outbound" : false,
+                "obtimeout" : 10,
+                "expires" : 1800,
+                "sip_mtu" : 1300,
+                "shortmode" : false,
+                "authentication" : 0,
+                "registration" : 0,
+                "username" : "TAU-72.IP",
+                "password" : "password",
+
+                "natsupport" : 0,
+                "publicip" : "",
+                "stunserver" : "",
+
+                "regrar_4" : "",
+                "proxy_4" : "",
+                "regrar_3" : "",
+                "proxy_3" : "",
+                "regrar_2" : "192.168.16.45",
+                "proxy_2" : "192.168.16.45",
+                "regrar_1" : "192.168.16.122",
+                "proxy_1" : "192.168.16.122",
+                "regrar_0" : "192.168.16.92",
+                "proxy_0" : "192.168.16.92" 
+            },
+            "general" : {
+                "device_name" : "tau72",
+                "start_timer" : 300,
+                "duration_timer" : 300,
+                "use_uni" : false,
+                "unit_prefix" : "" 
+            },
+            "trace" : {
+                "sip_level" : 3,
+                "h323_level" : 3,
+                "vapi_level" : 5,
+                "vapi_enabled" : false,
+                "app_info" : true,
+                "app_warn" : true,
+                "app_err" : true,
+                "app_dbg" : false,
+                "trace_out" : 0,
+                "syslog_addr" : "",
+                "syslog_port" : 514,
+                "run_syslog" : false
+            },
+            "limits" : {
+                "limit_0" : "[proxy] 65",
+
+                "limit" : {
+                    "id" : 18,
+                    "address" : "[proxy]",
+                    "port" : 65
+                }
+            },
+            "groups" : {
+                "group" : {
+                    "id" : 31,
+                    "phone" : "520999",
+                    "name" : "520998",
+                    "password" : "520999",
+                    "ports" : "2,0",
+                    "type" : 1,
+                    "timeout" : 7,
+                    "busy" : false,
+                    "enabled" :true,
+                    "sip_port" : 5061
+                }
+            },
+            "fax" : {
+                  "bitrate" : 14400,
+                  "datagram" : 512
+            }
+         },
+         "port-profiles" : {
+               "profile" : {
+                    "id" : 0,
+
+                    "aon" : 0,
+                    "taxophone" : 0,
+                    "flashtime" : {
+                        "min" : 100,
+                        "max" : 200
+                    },
+                    "gainr" : -70,
+                    "gaint" : 0,
+                    "calltransfer" : 0,
+                    "callwaiting" : false,
+                    "cfb_pri_over_cw" : false,
+                    "aon_hide_date" : false,
+                    "aon_hide_name" : false,
+                    "playmoh" : false
+               }
+        },
+      "slots" : {
+            "slot" : {
+                     "id" : 15,
+                     "ports": {
+                         "port" : {
+                            "id" : 71,
+                            "profile_id" : 0,
+
+                            "aon" : 0,
+                            "taxophone" : 0,
+                            "flashtime" : {
+                                "min" : 100,
+                                "max" : 200
+                            },
+                            "gainr" : -70,
+                            "gaint" : 0,
+                            "calltransfer" : 0,
+                            "callwaiting" : false,
+                            "cfb_pri_over_cw" : false,
+                            "aon_hide_date" : false,
+                            "aon_hide_name" : false,
+                            "playmoh" : false,
+
+                            "phone" : "",
+                            "user_name" : "",
+                            "auth_name" : "",
+                            "auth_pass" : "",
+                            "hotnumber" : "",
+
+                            "hotline" : false,
+                            "hottimeout" : 0,
+                            "ct_busy" : false,
+                            "ct_noanswer" : false,
+                            "ct_timeout" : 0,
+                            "ct_unconditional" : false,
+                            "ct_outofservice" : false,
+
+                            "cfnr_number" : "",
+                            "cfb_number" : "",
+                            "cfu_number" : "",
+                            "cfoos_number" : "",
+                            "pickupgroup" : "0,2,11,23",
+
+                            "dvo_dnd_en" : false,
+                            "dvo_cf_outofservice_en" : false,
+                            "dvo_cf_noanswer_en" : false,
+                            "dvo_cf_busy_en" : false,
+                            "dvo_cf_unconditional_en" : false,
+                            "dvo_ct_unattended_en" : false,
+                            "dvo_ct_attended_en" : false,
+                            "dvo_callwaiting_en" : false,
+
+                            "dnd" : false,
+                            "usealtnumber" : false,
+                            "altnumber" : "",
+                            "sip_port" : 0,
+                            "stop_dial" : false,
+                            "clir" : false,
+                            "disabled" : false,
+
+                            "termination" : "p/0",
+                            "comment" : "",
+                            "ep" : 0
+                         }
+                    }
+            }
+        }
+    },
+    "networks" : {
+        "network" : {
+            "hostname" : "fxs72",
+            "ipaddr" : "192.168.1.2",
+            "netmask" : "255.255.255.0",
+            "gateway" : "192.168.1.1",
+            "broadcast" : "",
+            "dhcpd" : {
+                "wan" : false,
+                "vlan_1" : false,
+                "vlan_2" : false,
+                "vlan_3" : false
+            },
+            "vlans" : {
+                "vlan_1" : {
+                    "vid" : 1,
+                    "cos" : 6,
+                    "enable" : false,
+                    "ip" : "192.168.16.150",
+                    "ip_mask" : "255.255.255.0",
+                    "bcast" : "" 
+                },
+                "vlan_2" : {
+                    "vid" : 2,
+                    "cos" : 0,
+                    "enable" : false,
+                    "ip" : "192.168.16.150",
+                    "ip_mask" : "255.255.255.0",
+                    "bcast" : "" 
+                },
+                "vlan_3" : {
+                    "vid" : 3,
+                    "cos" : 3,
+                    "enable" : false,
+                    "ip" : "192.168.16.150",
+                    "ip_mask" : "255.255.255.0",
+                    "bcast" : "" 
+                }
+            },
+            "autoupdate" : false,
+            "rtp_vlan" : 0,
+            "sig_vlan" : 0,
+            "ctl_vlan" : 0,
+            "dnsip" : "127.0.0.1",
+            "ntpen" : true,
+            "ntpip" : "192.168.16.44",
+            "telnet_en" : true,
+            "ssh_en" : true,
+            "snmp" : false,
+            "dhcp_gw" : {
+                "wan" : false,
+                "vlan_1" : false,
+                "vlan_2" : false,
+                "vlan_3" : false
+            },
+            "timecorrect" : "+06" 
+        },
+        "routes" : {
+            "route" : {
+                "id" : 19,
+                "ip" : "13.1.0.0",
+                "mask" : "255.255.0.0",
+                "gw" : "192.168.16.33",
+                "vid" : 0
+            }
+        },
+        "hosts" : {
+            "host" : {
+                "id" : 49,
+                "ip" : "127.0.0.1",
+                "name" : "localhost" 
+            }
+        }
+    },
+    "Switch" : {
+        "hubmode" : false,
+        "ports" : {
+            "port_0" : {
+                "id" : 0,
+                "portmask0" : "0 1 1 1 1 1",
+                "portmask0" : {
+                    "port0" : false,
+                    "port1" : true,
+                    "port2" : true,
+                    "port3" : true,
+                    "port4" : true,
+                    "port5" : true
+                },
+                "portmask0" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            },
+            "port_1" : {
+                "id" : 1,
+                "portmask" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            },
+            "port_2" : {
+                "id" : 2,
+                "portmask" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            },
+            "cpu" : {
+                "id" : 3,
+                "portmask" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            },
+            "sfp_0" : {
+                "id" : 4,
+                "portmask" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            },
+            "sfp_1" : {
+                "id" : 5,
+                "portmask" : [ 0, 1, 1 ,1 ,1, 1 ],
+                "vlan_en" : false,
+                "vid" : 0,
+                "ieee_mode" : 0,
+                "egress" : 0,
+                "override" : 0
+            }
+        },
+        "vtu" : {
+            "entry" : {
+                "id" : 15,
+                "vid" : 23,
+                "mode_port" : {
+                    "port0" : 2,
+                    "port1" : 2,
+                    "port2" : 1,
+                    "cpu" : 4,
+                    "sfp0" : 0,
+                    "sfp1" : 0
+                },
+                "override" : false,
+                "priority" : 0
+            }
+        },
+        "qos's" : {
+            "ieee_pri" : {
+                "7" : 3,
+                "6" : 3,
+                "5" : 2,
+                "4" : 2,
+                "3" : 1,
+                "2" : 0,
+                "1" : 0,
+                "0" : 1
+            },
+            "ieee_pri" : [ 3, 3, 2, 2, 1, 0, 0, 1 ],
+            "ieee_pri" : "0xfa41",
+            "diffserv_remap003C_mask" : "0x0",
+            "diffserv_remap407C_mask" : "0x55555555",
+            "diffserv_remap80BC_mask" : "0xaaaaaaaa",
+            "diffserv_remapC0FC_mask" : "0xffffffff",
+            "prioritets" : {
+                "entry" : {
+                    "id" : 5,
+                    "tag_remap_mask0" : "0x76543210",
+                    "prio" : 0,
+                    "qos_mode" : 3,
+                    "ingress_limit_mode" : 0,
+                    "ingress_rate" : 250000,
+                    "ingress_mask" : "0x0",
+                    "egress_rate" : 0
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+					 http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+	<!--                    Global                             -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_STRING_1_15" pattern=".{1,15}"
+		   help="String of 15 symbols."/>
+	<!-- device-name, -->
+	<PTYPE name="TYPE_STRING_1_18" pattern=".{1,18}"
+		   help="String of 18 symbols."/>
+	<!-- hostname, -->
+	<PTYPE name="TYPE_STRING_1_20" pattern=".{1,20}"
+		   help="String of 20 symbols."/>
+	<PTYPE name="TYPE_STRING_0_8" pattern="[0-9]{0,8}"
+		   help="String of 8 number"/>
+	<PTYPE name="TYPE_DIAL_TIMER" method="integer" pattern="10..300"
+		   help="."/>
+	<!-- start timet, dial timer,  -->
+	<PTYPE name="TYPE_DBG_LVL_SIP" method="integer" pattern="-1..9"
+		   help="."/>
+	<PTYPE name="TYPE_DBG_LVL_VAPI" pattern="([0-6][1-5])"
+		   help="AB: A=0..6 (Lib level), B=1..5 (APP level)"/>
+	<PTYPE name="TYPE_TRACE_OUT" method="select" pattern="off(0) syslog-server(1) stdout(2)"
+		   help="."/>
+	<PTYPE name="TYPE_PICKUPGROUP" pattern="(([3[0-2]|[1-2][0-9]|[0-9]){0,30})"
+		   help="String-enumeration pickupgroup."/>
+	<PTYPE name="TYPE_PORT_RANGE_SIP_SYSLOG" method="integer"
+	       pattern="1..65535"
+		   help="Range port."/>
+	<PTYPE name="TYPE_SIP_TRACEOUT" method="select"
+	       pattern="off(0) syslog-server(1) stdout(2)"
+		   help="Range port."/>
+	<PTYPE name="TYPE_SHOW_MODE" method="select"
+	       pattern="status(0) configuration(1) test-results(2)"
+		   help=""/>
+   	<PTYPE name="TYPE_FXS_ADD_REMOVE" method="select"
+	       pattern="add(add) remove(remove)"
+		   help=""/>
+	<PTYPE name="TYPE_FXS_TIMEOUT"
+		   method="integer"
+		   pattern="0..300"
+		   help="Timeout(ms)."/>
+   	<PTYPE name="TYPE_FXS_PORT" method="integer"
+	       pattern="0..65535"
+		   help="Range ports."/>
+   	<PTYPE name="TYPE_FXS_KEY_PORT" method="select"
+	       pattern="port(port)"
+		   help="word-key 'port'."/>
+ 	<!--=======================================================-->
+	<!--                    Network                            -->
+	<!--=======================================================-->
+   	<PTYPE name="TYPE_FXS_INTERFACE_VLAN" method="select"
+	       pattern="wan(0) vlan1(1) vlan2(2) vlan3(3)"
+		   help="Types VLAN:"/>
+   	<PTYPE name="TYPE_FXS_RANGE_VLAN" method="integer"
+	       pattern="1..4095"
+		   help="Range VLAN ID."/>
+   	<PTYPE name="TYPE_FXS_RANGE_NETWORK_INTERFACE" method="integer"
+	       pattern="2..3"
+		   help="Range networks interface."/>
+	<PTYPE name="TYPE_RANGE_ROUTES" method="integer" pattern="1..20"
+		   help="Range routes:"/>
+	<PTYPE name="TYPE_RANGE_HOSTS" method="integer" pattern="1..50"
+		   help="Range hosts:"/>
+   	<PTYPE name="TYPE_SERVICE_TO_VLAN" method="select"
+	       pattern="signaling(1) RTP(2)"
+		   help="Types service for VLAN:"/>
+   	<PTYPE name="TYPE_NETWORKS_TIME_ZONE"
+	       pattern="(-1[0-2])|(-[0-9])|([+]1[0-3])|([+][0-9])|0"
+		   help="Time zone: -12..+13"/>
+ 	<!--=======================================================-->
+	<!--                    SWITCH                             -->
+	<!--=======================================================-->
+   	<PTYPE name="TYPE_FXS_SWITCH_PORT_INT" method="select"
+	       pattern="CPU0(0) CPU1(1) slot0(2) slot1(3) front(4)"
+		   help="Types ports for the switch:"/>
+   	<PTYPE name="TYPE_FXS_SWITCH_PORT_STR" method="select"
+	       pattern="CPU0(CPU0) CPU1(CPU1) slot0(Slot0) slot1(Slot1) front(Front)"
+		   help="Types ports for the switch:"/>
+   	<PTYPE name="TYPE_FXS_TAG_UNTAG" method="select"
+	       pattern="unmodified(0) untagged(1) tagged(2) not(3)"
+		   help="Modes work for the port:"/>
+ 	<!--=======================================================-->
+	<!--                    QOS                                -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_FXS_INGRESS_RATE" method="integer"
+	       pattern="70..250000"
+		   help="Limit rate queue:"/>
+   	<PTYPE name="TYPE_FXS_INGRESS_LIMIT_MODE" method="select"
+	       pattern="none(0) all(1) flood(2) multicast(3) broadcast(4)"
+		   help="Modes limits rate for the ingress-queue:"/>
+	<PTYPE name="TYPE_FXS_QOS_COS" method="integer" pattern="0..7"
+		   help="Range priorities COS:"/>
+   	<PTYPE name="TYPE_FXS_QOS_MODE" method="select"
+	       pattern="dscp(0) 802.1p(1) dscp-preffered(2) 802.1p-preffered(3)"
+		   help="Mode QOS:"/>
+   	<PTYPE name="TYPE_FXS_QOS_QUEUE" method="integer" pattern="0..3"
+		   help="Range queues QOS:"/>
+   	<PTYPE name="TYPE_FXS_QOS_DSCP_LIST"
+	       pattern="(0x[0-9A-Fa-f]{0,1}[048Cc])"
+		   help="List priorities DSCP: from 0x00 to 0xFC with step 0x4"/>
+ 	<!--=======================================================-->
+	<!--                    Dialplan                           -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_DIAL_MIN_LEN" method="integer"
+	       pattern="1..20"
+		   help="."/>
+   	<PTYPE name="TYPE_DIALPLAN_TIMEOUT" method="integer"
+	       pattern="0..20"
+		   help="(sec)."/>
+   	<PTYPE name="TYPE_DIAL_PROTOCOL" method="select"
+	       pattern="sip(0) pickup(1)"
+		   help="."/>
+   	<PTYPE name="TYPE_DIAL_GATEWAY"
+	       pattern="((((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|proxy)"
+		   help="."/>
+   	<PTYPE name="TYPE_DIAL_PTE"
+	       pattern="0|10|20|30|40|50|60|70|80|90"
+		   help="."/>
+	<!--=======================================================-->
+	<!--                    Megaco                             -->
+	<!--=======================================================-->
+	<!-- 
+	<PTYPE name="TYPE_MEGACO_NUM_MGC" method="select"
+	       pattern="${type_fxs72_megaco_mgc}"
+		   help="Number MGC."/>
+	 -->
+	<PTYPE name="TYPE_MEGACO_NUM_MGC" method="select"
+	       pattern="mgc-1(0) mgc-2(1) mgc-3(2) mgc-4(3)"
+		   help="Number MGC."/>
+	<PTYPE name="TYPE_MEGACO_SHOW_MODE" method="select"
+	       pattern="general(general) megaco(megaco) mgcs(mgcs)"
+		   help="Mode show."/>
+	<PTYPE name="TYPE_LOG_MODE" method="select"
+	       pattern="console(0) syslog(1) all(2)"
+		   help="Mode out logger."/>
+	<PTYPE name="TYPE_LOG_LEVEL" method="select"
+	       pattern="disable(0) error(1) warning(2) info(3) debug(4)"
+		   help="Level logging."/>
+	<PTYPE name="TYPE_LOG_VAPI"
+	       pattern="-1|[0-9]{0,1}[0-9]"
+		   help="Level logging VAPI."/>
+		   
+   	<PTYPE name="TYPE_FXS_MEGACO_MID_MTP"
+	       pattern="([0-9]|[a-fA-F]){2,4}"
+		   help="Range ports."/>
+		   
+	<PTYPE name="TYPE_MEGACO_FLASH_TRANSFER" method="select"
+	       pattern="notify(0) rfc2833(1)"
+		   help="Mode flash transfer."/>
+		   
+	<PTYPE name="TYPE_ADAPTATION_SSW" method="select"
+	       pattern="disable(0) ZXSS10(1) SI3000(2)"
+		   help="Adaptation for soft switch."/>
+	<PTYPE name="TYPE_MEGACO_TIMERS" method="integer"
+	       pattern="0..10"
+		   help="??(sec)."/>
+	<PTYPE name="TYPE_MEGACO_WAIT_DELAY" method="integer"
+	       pattern="0..500"
+		   help="Timer waiting delay(sec??)."/>
+	<PTYPE name="TYPE_MEGACO_RTP_PORT" method="integer"
+	       pattern="1024..65535"
+		   help="Range rtp port."/>
+   	<PTYPE name="TYPE_MEGACO_SUPP_CODEC"
+	       pattern="(((g7(11[au]|2[3689])|t38)[,]{0,1}){1,7})"
+		   help="List codecs."/>
+   	<PTYPE name="TYPE_MEGACO_IPv6"
+	       pattern="(([0-9A-Fa-f]{4})(:([0-9A-Fa-f]{4})){7})"
+		   help="Type for IPv6."/><!-- D'not support short mode -->
+		   
+	<PTYPE name="TYPE_MEGACO_LISTEN_PORT" method="integer"
+	       pattern="0..2944"
+		   help="??"/>
+   	<PTYPE name="TYPE_MEGACO_TIMEOUT" method="integer"
+	       pattern="0..10000"
+		   help="??"/>
+   	<PTYPE name="TYPE_MEGACO_TRANSPORT" method="select"
+	       pattern="udp(0) tcp(1)"
+		   help="Type megaco transport protocol."/>
+   	<PTYPE name="TYPE_MEGACO_ENCODING" method="select"
+	       pattern="binary(0) compact-text(1) pretty-text(2)"
+		   help="Type megaco encoding."/>
+	<!--=======================================================-->
+	<!--                    Line Profiles                      -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_SHOW_SLOT_PORT_FLAG_CF" method="select"
+	       pattern="busy(1) noanswer(2) unconditional(3) outofservice(4)"
+		   help=""/>
+   	<PTYPE name="TYPE_SHOW_VOICE_PORT_MODE_FLAG" method="conditional_select"
+	       pattern="call-forwards:busy(1) noanswer(2) unconditional(3) outofservice(4),common:all(0),custom:main(1) hot(2) auth(3) alt(4)"
+		   help="Flags mode show voice port."/>
+   	<PTYPE name="TYPE_SHOW_VOICE_PORT_MODE" method="select"
+	       pattern="call-forwards(call-forwards) common(common) custom(custom)"
+		   help="Mode show voice port."/>
+	<PTYPE  name="TYPE_MIN_MAX"
+			method="integer"
+			pattern="0..15"
+			help="Index port-profile"/>
+	<PTYPE  name="TYPE_IDX_PROFILE"
+			method="integer"
+			pattern="0..15"
+			help="Index port-profile"/>			
+	<PTYPE  name="TYPE_PAYPHONE_MODE"
+			method="select"
+			pattern="off(0) polarity-pulse(1) 16k-pulse(2) 12k-pulse(3)"
+			help=""/>
+	<PTYPE  name="TYPE_CID_MODE"
+			method="select"
+			pattern="off(0) russian(1) dtmf(2) fsk-bell202(3) fsk-v23(4)"
+			help="Mode definition number caller."/>
+	<PTYPE name="TYPE_FLASH_TIME"
+		   method="integer"
+		   pattern="100..200"
+		   help="Length flash-pulse(ms)."/>
+	<PTYPE name="TYPE_CT"
+		   method="select"
+		   pattern="busy(ct_busy) noanswer(ct_noanswer) timeout(ct_timeout) unconditional(ct_unconditional) outofservice(ct_outofservice)"
+		   help="Type call transfer service."/>
+	<PTYPE name="TYPE_JSON_BOOL" 
+		   method="select"
+		   pattern="on(1) off(0)"
+		   help=""/>
+	<PTYPE name="TYPE_PHONE_NUMBER"
+		   pattern=".{1,20}"
+		   help=""/>
+	<PTYPE name="TYPE_PHONE_NUMBER_"
+		   pattern="[+0-9A-Za-z()-]+"
+		   help=""/>
+   	<PTYPE name="TYPE_DVO"
+		   method="select"
+		   pattern="cf_outofservice(cf_outofservice) cf_noanswer(cf_noanswer) cf_busy(cf_busy) cf_unconditional(cf_unconditional) ct_unattended(ct_unattended) ct_attended(ct_attended) callwaiting(callwaiting)"
+		   help="Type DVO service."/>
+   	<PTYPE name="TYPE_CF_NUMBER"
+		   method="select"
+		   pattern="noanswer(cf_noanswer) busy(cf_busy) unconditional(cf_unconditional) outofservice(cf_outofservice)"
+		   help="Type call forwards phone number."/>
+   	<PTYPE name="TYPE_CALL_TRANSFER"
+		   method="select"
+		   pattern="transmit-flash(0) attended(1) unattended(2) off(3)"
+		   help="Process flash - transfer flash to line with method SIP-INFO/H.245/Q.931 Attended calltransfer Unattended calltransfer Off - d'not detected flash"/>
+   	<PTYPE name="TYPE_RECEIVE_GAIN"
+		   method="integer"
+		   pattern="-230..20"
+		   help="gain (dB)"/>
+   	<PTYPE name="TYPE_TRANSMIT_GAIN"
+		   method="integer"
+		   pattern="-170..60"
+		   help="gain (dB)"/>
+	<PTYPE name="TYPE_VOICE_PORT_RANGE"
+		   pattern="(((1/(1[0-5]|[0-9])){1}(-(1[0-5]|[0-9])){0,}/(7[0-1]|[1-6][0-9]|[0-9]){1}(-(7[0-1]|[1-6][0-9]|[0-9])){0,}(,(1/(1[0-5]|[0-9])){1}(-(1[0-5]|[0-9])){0,}/(7[0-1]|[1-6][0-9]|[0-9]){1}(-(7[0-1]|[1-6][0-9]|[0-9])){0,}){0,})|all)"
+		   help="Voice port range: shelf/slot/port - shelf (1..1), slot  (0..15), port  (0..71)"/>
+ 	<!--=======================================================-->
+	<!--                    VOIP                               -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_FAX_DIRECTION"
+		   method="select"
+		   pattern="both(0) caller(1) callee(2) none(3)"
+		   help="Type fax direction."/>
+	<PTYPE name="TYPE_CODEC_ORDER"
+		   pattern="((g7(11[au]|23|29[abx])[,]{0,1}){1,6})"
+		   help="Codec order: g711a,g711u,g723,g729a,g729b,g729x"/>
+	<PTYPE name="TYPE_CODEC"
+		   method="select"
+		   pattern="g711(g711pte) g723(g723pte) g729(g729pte)"
+		   help="Type codec."/>
+	<PTYPE name="TYPE_G711_PTE"
+		   pattern="10|20|30|40|50|60"
+		   help=".."/>
+	<PTYPE name="TYPE_G723_PTE"
+		   pattern="30|60|90"
+		   help=".."/>
+	<PTYPE name="TYPE_G729_PTE"
+		   pattern="10|20|30|40|50|60|70|80"
+		   help=".."/>
+	<PTYPE name="TYPE_PAYLOADTYPE"
+		   method="select"
+		   pattern="dtmf(payload_dtmf) cisco-nse(payload_nse)"
+		   help=""/>
+	<PTYPE name="TYPE_PAYLOAD"
+		   method="integer"
+		   pattern="96..127"
+		   help=".."/>
+	<PTYPE name="TYPE_DTMF_TRANSFER"
+		   method="select"
+		   pattern="none(0) rfc2833(1) outbound(2)"
+		   help=".."/>
+	<PTYPE  name="TYPE_MODEM_TRANSFER"
+			method="select"
+			pattern="g711a-vbd(0) g711u-vbd(1) g711a-rfc3108(2) g711u-rfc3108(3) off(4) g711a-nse(5) g711u-nse(6)"
+			help=".."/>
+	<PTYPE name="TYPE_FAX_TRANSFER" method="select"
+		   pattern="g711a(0) g711u(1) t38(2)"
+		   help=""/>
+	<PTYPE  name="TYPE_FAX_DATAGRAM" method="integer"
+			pattern="272..512"
+			help=".."/>
+	<PTYPE  name="TYPE_FAX_BITRATE" method="select"
+			pattern="9600(9600) 14400(14400)"
+			help=".."/>
+	<PTYPE name="TYPE_JB" method="select"
+		   pattern="pt-delay(jb_pt_delay) vo-delay(jb_vo_delay) vo-adaptive(jb_vo_adaptive) 
+		   deletion-threshold(jb_vo_threshold) deletion-mode(jb_vo_mode_soft)"
+		   help=""/>
+	<PTYPE name="TYPE_JB_DELAY" method="integer"
+		   pattern="0..200"
+		   help=".."/>
+	<PTYPE name="TYPE_JB_DELAY_THRESHOLD"
+		   method="integer"
+		   pattern="200..500"
+		   help=".."/>
+	<PTYPE name="TYPE_JB_DELAY_MODE"
+		   method="select"
+		   pattern="hard(0) soft(1)"
+		   help="Jitter buffer delay mode, hard - , soft - ."/>
+	<PTYPE  name="TYPE_CODEC_VAL"
+			method="integer"
+			pattern="5..30"
+			help="Timer foring"/>
+	<PTYPE name="TYPE_UDP_PORT_RANGE"
+		   method="integer"
+		   pattern="12000..13920"
+		   help=""/>
+	<PTYPE name="TYPE_INTRCP_PORT_RANGE"
+		   method="integer"
+		   pattern="1024..65535"
+		   help=""/>
+	<PTYPE name="TYPE_TCP_PORT_RANGE"
+		   method="integer"
+		   pattern="10000..11920"
+		   help=""/>
+	<PTYPE name="TYPE_SIP_RTP_PORT_RANGE"
+		   method="integer"
+		   pattern="35002..40000"
+		   help=""/>
+	<PTYPE name="TYPE_DIFFSERV"
+		   method="integer"
+		   pattern="0..255"
+		   help=""/>
+	<PTYPE name="TYPE_RTCP_TIMER"
+		   pattern="(-1|6553[0-5]|655[12][0-9]|65[1-4][0-9]{2}|6[1-4][0-9]{3}|[0-5][0-9]{4}|[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[5-9])"
+		   help=""/>
+   	<PTYPE name="TYPE_VOIP_PROTOCOL"
+		   pattern="intrcp-port-range|sip-rtp-port-range|diffserv|sip-diffserv|rtcp-period|rtcp-timer|verify-remote-media"
+		   help=""/>
+	<!--=======================================================-->
+	<!--                    SIP                                -->
+	<!--=======================================================-->
+	<PTYPE name="TYPE_CALLWAITING_RINGBACK"
+		   method="select"
+		   pattern="ringing(0) queued(1)"
+		   help="Send message 180 or 182 else second call."/>
+	<PTYPE name="TYPE_PROXY_MODE"
+		   method="select"
+		   pattern="parking(1) homing(2)"
+		   help=""/>
+	<PTYPE name="TYPE_DTMF_MIME_TYPE"
+		   method="select"
+		   pattern="dtmf(0) dtmf-relay(1) audio(2)"
+		   help=""/>
+	<PTYPE name="TYPE_HFLASH_MIME_TYPE"
+		   method="select"
+		   pattern="dtmf(0) hook-flash(1) broadsoft(2)"
+		   help=""/>
+	<PTYPE name="TYPE_REMOTE_RINGBACK"
+		   method="select"
+		   pattern="disable(0) ringback-with-ringing(1) ringback-with-progress(2)"
+		   help=""/>
+	<PTYPE name="TYPE_100rel"
+		   method="select"
+		   pattern="supported(0) required(1) off(2)"
+		   help=""/>
+	<PTYPE name="TYPE_TRANSPORT"
+		   method="select"
+		   pattern="udp-preffered(0) tcp-preffered(1) udp(2) tcp(3)"
+		   help=""/>
+	<PTYPE name="TYPE_REGISTER_RETRY_INTERVAL" method="integer"
+		   pattern="10..3600"
+		   help=""/>
+	<PTYPE name="TYPE_HOME_TEST_MODE"
+		   method="select"
+		   pattern="invite(0) options(1) register(2)"
+		   help=""/>
+	<PTYPE name="TYPE_UDP_MTU" method="integer"
+		   pattern="1350..1450"
+		   help="Size UDP packet."/>
+	<PTYPE name="TYPE_AUTHENTICATION" method="select"
+		   pattern="global(1) user-defined(2)"
+		   help="Type authentication."/>
+	<PTYPE name="TYPE_DIAL_TIMEOUT"
+		   method="integer"
+		   pattern="0..30"
+		   help=""/>
+	<PTYPE name="TYPE_EXPIRES"
+		   method="integer"
+		   pattern="10..345600"
+		   help=""/>
+	<PTYPE name="TYPE_INVITE_INIT_T"
+		   method="integer"
+		   pattern="100..1000"
+		   help="Timer SIP-T(ms)."/>
+	<PTYPE name="TYPE_INVITE_TOTAL_T"
+		   method="integer"
+		   pattern="1000..39000"
+		   help="Total timeout send request(ms)."/>
+	<PTYPE name="TYPE_PORT_"
+		   method="integer"
+		   pattern="0..10"
+		   help="Port number proxy."/>
+	<PTYPE name="TYPE_NUM_PROXY"
+		   method="select"
+		   pattern="1(0) 2(1) 3(2) 4(3) 5(4)"
+		   help="Number proxy."/>
+   	<PTYPE name="TYPE_KEEPALIVE_TIME"
+		   method="integer"
+		   pattern="0..120000"
+		   help=""/>
+	<PTYPE name="TYPE_REGISTRATION_DEC"
+		   method="integer"
+		   pattern="0..31"
+		   help=""/>
+	<PTYPE name="TYPE_REGISTRATION_HEX"
+		   pattern="((0x|)[01][0-9a-fA-F])"
+		   help=""/>
+   	<PTYPE name="TYPE_REGISTRATION_STR"
+		   pattern="([0-1]{5})"
+		   help="One for enable regrar0-4(10110 - 4,2,1 regrar enabled)."/>
+   	<PTYPE name="TYPE_DEBUG_LEVEL_SIP"
+		   method="integer"
+		   pattern="-1..9"
+		   help=""/>
+   	<!--=======================================================-->
+</CLISH_MODULE>
